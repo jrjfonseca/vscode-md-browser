@@ -11,6 +11,17 @@
     "type": "git",
     "url": "https://github.com/jrjfonseca/vscode-md-browser.git"
   },
+  "bugs": {
+    "url": "https://github.com/jrjfonseca/vscode-md-browser/issues"
+  },
+  "homepage": "https://github.com/jrjfonseca/vscode-md-browser#readme",
+  "icon": "icon.png",
+  "keywords": [
+    "markdown",
+    "browser",
+    "preview",
+    "youtube"
+  ],
   "license": "MIT",
   "categories": ["Other"],
   "activationEvents": [

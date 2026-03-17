@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { MarkdownLinkProvider, getUrlAtCursor } from './linkProvider';
-import { extractYouTubeId, openYouTube, disposeYouTube } from './youtubePanel';
+
+const NEEDS_SYSTEM_BROWSER = /youtube\.com|youtu\.be/;
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -15,9 +16,8 @@ export function activate(context: vscode.ExtensionContext) {
         url = await vscode.window.showInputBox({ prompt: 'Enter URL to open' });
       }
       if (url) {
-        const ytId = extractYouTubeId(url);
-        if (ytId) {
-          openYouTube(ytId);
+        if (NEEDS_SYSTEM_BROWSER.test(url)) {
+          await vscode.env.openExternal(vscode.Uri.parse(url));
         } else {
           try {
             await vscode.commands.executeCommand('simpleBrowser.show', url);
@@ -42,6 +42,4 @@ function resolveUrl(): string | undefined {
   return editor ? getUrlAtCursor(editor.document, editor.selection.active) : undefined;
 }
 
-export function deactivate() {
-  disposeYouTube();
-}
+export function deactivate() {}
