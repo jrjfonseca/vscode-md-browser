@@ -2,7 +2,7 @@
   "name": "vscode-md-browser",
   "displayName": "Markdown Browser",
   "description": "Open links from markdown files in an embedded browser within VS Code",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "jrjfonseca",
   "engines": {
     "vscode": "^1.85.0"
@@ -23,7 +23,9 @@
     "youtube"
   ],
   "license": "MIT",
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "activationEvents": [
     "onLanguage:markdown"
   ],
